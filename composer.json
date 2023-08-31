@@ -1,0 +1,32 @@
+{
+    "name": "c4n4r/pigment-php",
+    "license": "MIT",
+    "description": "A PHP library to generate CSS gradients",
+    "version": "1.0.0",
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pigment\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hadrien Delphin",
+            "email": "delphin.hadrien@gmail.com",
+            "role": "Creator"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^2.16",
+        "phpstan/phpstan": "^1.10",
+        "symfony/var-dumper": "^6.3"
+
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
