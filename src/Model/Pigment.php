@@ -22,6 +22,12 @@ class Pigment
         $this->colorHandler = PigmentColorHandler::getInstance();
     }
 
+    public static function random(): Pigment
+    {
+        $colorHandler = PigmentColorHandler::getInstance();
+        return new Pigment($colorHandler->generateRandomColor());
+    }
+
     public function getColorHex(): string
     {
         return $this->color;

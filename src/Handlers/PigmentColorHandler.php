@@ -100,6 +100,17 @@ class PigmentColorHandler
     }
 
     /**
+     * @return string
+     */
+    public function generateRandomColor(): string {
+        $color = [];
+        $color['red'] = rand(0, 255);
+        $color['green'] = rand(0, 255);
+        $color['blue'] = rand(0, 255);
+        return $this->implodeToHex($color);
+    }
+
+    /**
      * @param array $color
      * @param int $percentage
      * @return array{red: int, green: int, blue: int}

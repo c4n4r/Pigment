@@ -43,6 +43,11 @@ test('it can generate a gradient between 2 colors', function () {
    }
 });
 
+test('it can generate a random color', function () {
+    $pigment = Pigment::random();
+    expect($pigment)->toBeInstanceOf(Pigment::class);
+});
+
 test("it throws an exception if the color is invalid", function () {
     $pigment = new Pigment("#00ffcsdsc");
 })->throws(InvalidArgumentException::class, "Invalid color");

@@ -18,6 +18,11 @@ composer require c4n4r/pigment
 use Pigment\Pigment;
 $pigment = new Pigment('#ff0000');
 
+//or generate a random color
+
+$pigment = Pigment::random();
+```
+
 $pigment->getHex(); // #ff0000
 $pigment->getRgb(); // ["red" => 255, "green" => 0, "blue" => 0]
 ```
