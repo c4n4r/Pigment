@@ -73,5 +73,12 @@ class Pigment
         return new Pigment($this->colorHandler->darken($this->color, $percentage));
     }
 
+    public function findComplemetary(): Pigment
+    {
+        $rgb = $this->getColorRgb();
+        return new Pigment(
+            $this->colorHandler->implodeToHex($this->colorHandler->findComplementaryColor($rgb))
+        );
+    }
 
 }

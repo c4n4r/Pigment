@@ -39,7 +39,6 @@ test('it can generate a gradient between 2 colors', function () {
    $gradients = $pigmentOne->generateGradient($pigmentTwo, 5);
    foreach ($gradients as $gradient) {
        expect($gradient)->toBeInstanceOf(Pigment::class);
-       dump($gradient->getColorHex());
    }
 });
 
@@ -51,3 +50,10 @@ test('it can generate a random color', function () {
 test("it throws an exception if the color is invalid", function () {
     $pigment = new Pigment("#00ffcsdsc");
 })->throws(InvalidArgumentException::class, "Invalid color");
+
+
+test('it can find the complementary color', function () {
+    $pigment = new Pigment("#c9115f");
+    $complementary = $pigment->findComplemetary();
+    expect($complementary->getColorHex())->toBe("#36eea0");
+});

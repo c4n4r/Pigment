@@ -193,4 +193,13 @@ class PigmentColorHandler
         $color = $color1 + ($step * ($color2 - $color1));
         return round($color);
     }
+    public function findComplementaryColor(array $color): array
+    {
+        $complementaryColor = [];
+        $complementaryColor['red'] = 255 - $color['red'];
+        $complementaryColor['green'] = 255 - $color['green'];
+        $complementaryColor['blue'] = 255 - $color['blue'];
+        return $complementaryColor;
+    }
+
 }
