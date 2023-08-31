@@ -1,6 +1,6 @@
 # Pigment - A simple PHP library for color generation and manipulation
 
-Pigment is a simple PHP library for color generation and manipulation. It can be used to generate colors randomly or from a string. It can also be used to manipulate colors (e.g. to make them lighter or darker).
+Pigment is a simple PHP library for color generation and manipulation. It can be used to generate gradients from two hexadecimal sources. It can also be used to manipulate colors (e.g. to make them lighter or darker).
 
 ## Installation
 
