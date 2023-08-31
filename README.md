@@ -36,7 +36,7 @@ $pigment = new Pigment('#007D64');
 $pigment->lighten(10); //#008a6e
 ```
 
-### You also generate a gradient between two colors
+### You can also generate a gradient between two colors
 
 ```php
 
