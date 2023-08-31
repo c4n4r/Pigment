@@ -3,6 +3,8 @@
     "license": "MIT",
     "description": "A PHP library to generate CSS gradients",
     "version": "1.0.0",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": "^8.0"
     },
