@@ -22,7 +22,7 @@ $pigment->getHex(); // #ff0000
 $pigment->getRgb(); // ["red" => 255, "green" => 0, "blue" => 0]
 ```
 
-### darken or lighten a color
+### Darken or lighten a color
 
 ```php
 use Pigment\Pigment;
@@ -49,7 +49,7 @@ $gradient = $colorOne->gradient($colorTwo, 10);
 ```
 Every method that manipulates a color returns a new instance of the Pigment class.
 
-### use methods without creating an instance
+### Use methods without creating an instance
 
 ```php
 
@@ -67,7 +67,7 @@ $gradient = $colorHandler->createGradientBetweenToColors('#007D64', '#ff0000', 1
 
 Those methods does not return a new instance of the Pigment class, you can use them if you don't need to manipulate the color further.
 
-### examples
+### Examples
 
 you can refer to the examples folder for more examples.
 
