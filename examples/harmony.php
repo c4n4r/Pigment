@@ -4,10 +4,11 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 //use Pigment
+use Pigment\Handlers\Harmony\Harmonizer;
 use Pigment\Model\Pigment;
 
 $pigmentRandomOne = Pigment::random();
-$harmonized = $pigmentRandomOne->findComplemetary();
+$harmonized = $pigmentRandomOne->findColorHarmonized(Harmonizer::complementary);
 
 ?>
 

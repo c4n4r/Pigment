@@ -2,6 +2,8 @@
 
 namespace Pigment\Model;
 
+use Pigment\Handlers\Harmony\ColorHarmonyFactory;
+use Pigment\Handlers\Harmony\Harmonizer;
 use Pigment\Handlers\PigmentColorHandler;
 use Pigment\Traits\CanValidate;
 
@@ -73,12 +75,9 @@ class Pigment
         return new Pigment($this->colorHandler->darken($this->color, $percentage));
     }
 
-    public function findComplemetary(): Pigment
+    public function findColorHarmonized(Harmonizer $harmonizer = Harmonizer::complementary): Pigment
     {
-        $rgb = $this->getColorRgb();
-        return new Pigment(
-            $this->colorHandler->implodeToHex($this->colorHandler->findComplementaryColor($rgb))
-        );
+        return ColorHarmonyFactory::getHarmonizer($harmonizer)->execute($this);
     }
 
 }

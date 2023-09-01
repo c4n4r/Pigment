@@ -1,6 +1,7 @@
 <?php
 
 
+use Pigment\Handlers\Harmony\Harmonizer;
 use Pigment\Model\Pigment;
 
 test("it can be created", function () {
@@ -54,6 +55,6 @@ test("it throws an exception if the color is invalid", function () {
 
 test('it can find the complementary color', function () {
     $pigment = new Pigment("#c9115f");
-    $complementary = $pigment->findComplemetary();
+    $complementary = $pigment->findColorHarmonized();
     expect($complementary->getColorHex())->toBe("#36eea0");
 });
