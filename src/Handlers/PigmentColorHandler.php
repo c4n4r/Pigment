@@ -203,8 +203,11 @@ class PigmentColorHandler
     }
 
 
-    // function that transform rgb color to hsl color
-    public function rgbToHsl($color){
+    /**
+     * @param $color
+     * @return array{h: float, s: float, l: float}
+     */
+    public function rgbToHsl($color): array{
         $r = $color['red'];
         $g = $color['green'];
         $b = $color['blue'];
@@ -239,8 +242,12 @@ class PigmentColorHandler
         return array('h' => round($h, 2), 's' => round($s, 2), 'l' => round($l, 2));
     }
 
-    // function that transform hsl color to rgb color
-    public function hslToRgb(array $hslColor) {
+    /**
+     * @param array $hslColor
+     * @return array{red: int, green: int, blue: int}
+     */
+    public function hslToRgb(array $hslColor): array
+    {
 
         $h = $hslColor['h'];
         $s = $hslColor['s'];
