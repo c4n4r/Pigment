@@ -2,6 +2,7 @@
 
 namespace Pigment\Model;
 
+use Pigment\Handlers\ColorTransformer;
 use Pigment\Handlers\Harmony\ColorHarmonyFactory;
 use Pigment\Handlers\Harmony\Harmonizer;
 use Pigment\Handlers\PigmentColorHandler;
@@ -12,6 +13,7 @@ class Pigment
     use CanValidate;
 
     private PigmentColorHandler $colorHandler;
+    private ColorTransformer $colorTransformer;
 
     public function __construct(private string $color)
     {
@@ -22,6 +24,7 @@ class Pigment
         }
 
         $this->colorHandler = PigmentColorHandler::getInstance();
+        $this->colorTransformer = ColorTransformer::getInstance();
     }
 
     public static function random(): Pigment
@@ -40,7 +43,7 @@ class Pigment
      */
     public function getColorRgb(): array
     {
-        return $this->colorHandler->explodeToRgb($this->color);
+        return $this->colorTransformer->explodeToRgb($this->color);
     }
 
 
