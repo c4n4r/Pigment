@@ -75,9 +75,17 @@ class Pigment
         return new Pigment($this->colorHandler->darken($this->color, $percentage));
     }
 
+    /**
+     * @param Harmonizer $harmonizer
+     * @return Pigment
+     */
     public function findColorHarmonized(Harmonizer $harmonizer = Harmonizer::complementary): Pigment
     {
         return ColorHarmonyFactory::getHarmonizer($harmonizer)->execute($this);
     }
+
+
+
+
 
 }
