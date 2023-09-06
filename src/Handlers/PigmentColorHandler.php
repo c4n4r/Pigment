@@ -169,6 +169,11 @@ class PigmentColorHandler
         $color = $color1 + ($step * ($color2 - $color1));
         return round($color);
     }
+
+    /**
+     * @param array $color
+     * @return array{red: int, green: int, blue: int}
+     */
     public function findComplementaryColor(array $color): array
     {
         $complementaryColor = [];
@@ -178,6 +183,10 @@ class PigmentColorHandler
         return $complementaryColor;
     }
 
+    /**
+     * @param array $color
+     * @return array{red: int, green: int, blue: int}
+     */
     public function findSplitComplementaryColor($color): array
     {
         $hsl = $this->colorTransformer->rgbToHsl($color);

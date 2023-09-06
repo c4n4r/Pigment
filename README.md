@@ -51,6 +51,7 @@ $colorTwo = new Pigment('#ff0000');
 //create a gradient with 10 steps
 $gradient = $colorOne->gradient($colorTwo, 10);
 ```
+
 Every method that manipulates a color returns a new instance of the Pigment class.
 
 ### Use methods without creating an instance
@@ -71,10 +72,31 @@ $gradient = $colorHandler->createGradientBetweenToColors('#007D64', '#ff0000', 1
 
 Those methods does not return a new instance of the Pigment class, you can use them if you don't need to manipulate the color further.
 
+### Transform colors in different formats
+
+You can use the ColorTransfoemer class to transform colors in different formats without using a Pigment class.
+
+```php
+
+$colorTransformer = new ColorTransformer();
+
+//hex to rgb
+$colorTransformer->explodeToRgb('#007D64');
+
+//rgb to hex
+$colorTransformer->implodeToHex([0, 125, 100]);
+
+//rgb to hsl
+$colorTransformer->rgbToHsl([0, 125, 100]);
+
+//hsl to rgb
+$colorTransformer->hslToRgb();
+
+```
+
 ### Examples
 
 you can refer to the examples folder for more examples.
-
 
 ## License
 

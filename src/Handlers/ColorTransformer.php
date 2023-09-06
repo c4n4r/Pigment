@@ -49,7 +49,7 @@ class ColorTransformer
     }
 
     /**
-     * @param array $color
+     * @param array{red: int, green: int, blue: int} $color
      * @return string
      */
     public function implodeToHex(array $color): string
@@ -65,10 +65,10 @@ class ColorTransformer
     }
 
     /**
-     * @param $color
+     * @param array{red: int, green: int, blue: int} $color
      * @return array{h: float, s: float, l: float}
      */
-    public function rgbToHsl($color): array{
+    public function rgbToHsl(array $color): array{
         $r = $color['red'];
         $g = $color['green'];
         $b = $color['blue'];
