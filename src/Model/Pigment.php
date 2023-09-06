@@ -27,12 +27,19 @@ class Pigment
         $this->colorTransformer = ColorTransformer::getInstance();
     }
 
+    /**
+     * @return Pigment
+     * generate a new instance of Pigment with a random color
+     */
     public static function random(): Pigment
     {
         $colorHandler = PigmentColorHandler::getInstance();
         return new Pigment($colorHandler->generateRandomColor());
     }
 
+    /**
+     * @return string
+     */
     public function getColorHex(): string
     {
         return $this->color;
@@ -46,6 +53,15 @@ class Pigment
         return $this->colorTransformer->explodeToRgb($this->color);
     }
 
+    /**
+     * @return array{hue: int, saturation: int, lightness: int}
+     */
+    public function getColorHsl(): array
+    {
+        return $this->colorTransformer->rgbToHsl(
+            $this->getColorRgb()
+        );
+    }
 
     /**
      * @param Pigment $pigment
@@ -87,6 +103,17 @@ class Pigment
         return ColorHarmonyFactory::getHarmonizer($harmonizer)->execute($this);
     }
 
+    /**
+     * @return array{hex: string, rgb: array{red: int, green: int, blue: int}, hsl: array{hue: int, saturation: int, lightness: int}}
+     */
+    public function __toArray(): array
+    {
+        return [
+            "hex" => $this->getColorHex(),
+            "rgb" => $this->getColorRgb(),
+            "hsl" => $this->getColorHsl(),
+        ];
+    }
 
 
 

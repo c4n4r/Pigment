@@ -12,7 +12,7 @@ class ColorHarmonyFactory {
         $handler = new PigmentColorHandler(ColorTransformer::getInstance());
         return match ($harmony) {
            Harmonizer::complementary => new ComplementaryColorHarmonizer($handler, ColorTransformer::getInstance()),
-              Harmonizer::splitComplementary => new SplitComplementaryColorHarmonizer($handler, ColorTransformer::getInstance()),
+           Harmonizer::splitComplementary => new SplitComplementaryColorHarmonizer($handler, ColorTransformer::getInstance()),
            default => throw new \InvalidArgumentException("Invalid harmony"),
         };
     }
