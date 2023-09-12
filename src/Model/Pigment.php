@@ -117,15 +117,17 @@ class Pigment
 
     /**
      * @param int $steps
+     * @param int $precision
      * @return Pigment[]
+     * The precision value is the weight of the color, the higher the precision the more similar the colors will be
      */
-    public function findMonoChromaticColorsGradient(int $steps = 5): array
+    public function findMonoChromaticColorsGradient(int $steps = 5, int $precision = 10): array
     {
         $hsl = $this->getColorHsl();
         $colors = [];
         for ($i = 0; $i < $steps; $i++) {
             $colors[] = new Pigment(
-                $this->colorHandler->findMonochromaticColor($hsl, $i)
+                $this->colorHandler->findMonochromaticColor($hsl, $i, $precision)
             );
         }
         return $colors;

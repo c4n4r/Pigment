@@ -199,9 +199,9 @@ class PigmentColorHandler
      * @param int $step
      * @return string
      */
-    public function findMonochromaticColor(array $hsl, int $step): string
+    public function findMonochromaticColor(array $hsl, int $step, $precision = 10): string
     {
-        $newL = $hsl['l'] +  ((100 - $hsl['l']) * ($step * 10) / 100);
+        $newL = $hsl['l'] +  ((100 - $hsl['l']) * ($step * $precision) / 100);
         //cannot be higher than 100
         if ($newL > 100) {
             $newL = 100;
