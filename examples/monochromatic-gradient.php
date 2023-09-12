@@ -10,7 +10,7 @@ use Pigment\Model\Pigment;
 $pigment = Pigment::random();
 
 //generate mono-chromatic gradient
-$monochromatic = $pigment->findMonoChromaticColorsGradient(25, 4);
+$monochromatic = $pigment->findMonoChromaticColorsGradient(25, 10);
 ?>
 
 <!DOCTYPE html>
