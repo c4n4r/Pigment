@@ -4,10 +4,12 @@ namespace Pigment\Handlers;
 
 use function abs;
 use function array_map;
+use function dd;
 use function dechex;
 use function fmod;
 use function hexdec;
 use function implode;
+use function intval;
 use function max;
 use function min;
 use function round;
@@ -39,7 +41,6 @@ class ColorTransformer
         $explode = array_map(function ($color) {
             return hexdec($color);
         }, $color);
-
         return [
             'red' => $explode[0],
             'green' => $explode[1],
@@ -78,7 +79,6 @@ class ColorTransformer
         $max = max($r, $g, $b);
         $min = min($r, $g, $b);
         $h = 0;
-        $s = 0;
         $l = ($max + $min) / 2;
         $d = $max - $min;
         if($d == 0){
@@ -100,8 +100,13 @@ class ColorTransformer
                     break;
             }
         }
-        return array('h' => round($h, 2), 's' => round($s, 2), 'l' => round($l, 2));
+        $s = intval(round($s, 2) * 100);
+        $l = intval(round($l, 2) * 100);
+        return array('h' => intval(round($h, 0)), 's' => $s, 'l' => $l);
     }
+
+
+
 
     /**
      * @param array $hslColor
@@ -142,6 +147,23 @@ class ColorTransformer
             $b = $function($p, $q, $h - 1/3);
         }
         return array('red' => round($r * 255), 'green' => round($g * 255), 'blue' => round($b * 255));
+    }
+
+
+    /**
+     * @param float $h
+     * @param float $s
+     * @param float $l
+     * @return string
+     */
+    public function hslToHex(float $h, float $s, float $l): string
+    {
+        $rgb = $this->hslToRgb([
+            'h' => $h,
+            's' => $s,
+            'l' => $l
+        ]);
+        return $this->implodeToHex($rgb);
     }
 
 }

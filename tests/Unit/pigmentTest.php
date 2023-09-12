@@ -64,3 +64,9 @@ test('it can return a color using the split-complementary harmony', function () 
     $complementary = $pigment->findColorHarmonized(Harmonizer::splitComplementary);
     expect($complementary->getColorHex())->toBe("#12ca7d");
 });
+
+test('it can find monochromatic harmonized colors of a Pigment', function () {
+    $pigment = new Pigment("#c9115f");
+    $monochromatic = $pigment->findMonoChromaticColorsGradient();
+    expect(sizeof($monochromatic))->toBe(5);
+});

@@ -191,11 +191,28 @@ class PigmentColorHandler
     {
         $hsl = $this->colorTransformer->rgbToHsl($color);
         $hsl['h'] = round($hsl['h'] + 180 % 360, 0);
-        $hsl['s'] = round($hsl['s'] * 100, 0);
-        $hsl['l'] = round($hsl['l'] * 100, 0);
         return $this->colorTransformer->hslToRgb($hsl);
     }
 
+    /**
+     * @param array $hsl
+     * @param int $step
+     * @return string
+     */
+    public function findMonochromaticColor(array $hsl, int $step): string
+    {
+        $newL = $hsl['l'] +  ((100 - $hsl['l']) * ($step * 10) / 100);
+        //cannot be higher than 100
+        if ($newL > 100) {
+            $newL = 100;
+        }
+
+        return $this->colorTransformer->hslToHex(
+            $hsl["h"],
+            $hsl["s"],
+            $newL
+        );
+    }
 
 
 }

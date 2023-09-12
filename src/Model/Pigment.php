@@ -115,7 +115,36 @@ class Pigment
         ];
     }
 
+    /**
+     * @param int $steps
+     * @return Pigment[]
+     */
+    public function findMonoChromaticColorsGradient(int $steps = 5): array
+    {
+        $hsl = $this->getColorHsl();
+        $colors = [];
+        for ($i = 0; $i < $steps; $i++) {
+            $colors[] = new Pigment(
+                $this->colorHandler->findMonochromaticColor($hsl, $i)
+            );
+        }
+        return $colors;
+    }
 
+
+    /**
+     * @return Pigment
+     */
+    public function findContentColor(): Pigment
+    {
+        $hsl = $this->getColorHsl();
+        if ($hsl["lightness"] > 50) {
+            // if the color is light, return a dark color but not #000000
+            return new Pigment("#000000");
+
+        }
+        return new Pigment("#ffffff");
+    }
 
 
 }
